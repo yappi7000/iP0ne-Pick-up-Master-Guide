@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone転売 ピックアップ完全攻略ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0D0D0F;
+  --surface: #16161A;
+  --surface2: #1E1E24;
+  --border: rgba(255,255,255,0.07);
+  --text: #F0EFE8;
+  --text-sub: #9A9890;
+  --text-muted: #5A5855;
+  --accent: #4FC3F7;
+  --accent2: #FF6B35;
+  --gold: #FFD166;
+  --green: #06D6A0;
+  --red: #EF476F;
+  --purple: #B388FF;
+  --mono: 'DM Mono', monospace;
+  --display: 'Bebas Neue', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.page { max-width: 680px; margin: 0 auto; padding: 0 1rem 6rem; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(79,195,247,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(255,107,53,0.08) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(52px, 12vw, 88px);
+  color: var(--text);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.hero-title .line2 { color: var(--accent); display: block; }
+.hero-title .line3 { color: var(--gold); display: block; }
+
+.hero-sub {
+  font-size: 14px;
+  color: var(--text-sub);
+  max-width: 420px;
+  line-height: 1.8;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.h-stat {
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+}
+.h-stat-num {
+  font-family: var(--display);
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.h-stat-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.05em; }
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+.scroll-hint-text { font-size: 9px; letter-spacing: 0.15em; color: var(--text-muted); }
+.scroll-arrow { width: 16px; height: 16px; border-right: 1.5px solid var(--text-muted); border-bottom: 1.5px solid var(--text-muted); transform: rotate(45deg); margin-top: -8px; }
+
+/* ===== SECTION COMMON ===== */
+.section { margin: 4rem 0; }
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-label::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.section-body {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.9;
+}
+.section-body strong { color: var(--text); font-weight: 500; }
+
+/* ===== PAIN SECTION ===== */
+.pain-box {
+  background: linear-gradient(135deg, #1A0A0A 0%, #1E1215 100%);
+  border: 0.5px solid rgba(239,71,111,0.2);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+.pain-box::before {
+  content: '島流し';
+  font-family: var(--display);
+  font-size: 100px;
+  color: rgba(239,71,111,0.04);
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ===== 島流しイラスト SVG ===== */
+.island-illustration {
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+/* ===== FLOW SECTION ===== */
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  margin: 1.5rem 0;
+}
+.flow-steps::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  bottom: 40px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--accent), var(--purple));
+}
+.flow-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+}
+.flow-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1.5px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.flow-content { flex: 1; padding-top: 8px; }
+.flow-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.flow-desc { font-size: 12.5px; color: var(--text-sub); line-height: 1.7; }
+
+/* ===== METHOD CARDS ===== */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 1.5rem 0;
+}
+.method-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem 1rem;
+  transition: border-color 0.2s;
+}
+.method-card.highlight {
+  border-color: rgba(79,195,247,0.4);
+  background: rgba(79,195,247,0.05);
+}
+.method-icon { font-size: 22px; margin-bottom: 8px; }
+.method-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.method-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 2px 7px;
+  border-radius: 99px;
+  margin-bottom: 8px;
+}
+.tag-danger { background: rgba(239,71,111,0.15); color: var(--red); }
+.tag-warn { background: rgba(255,209,102,0.15); color: var(--gold); }
+.tag-best { background: rgba(6,214,160,0.15); color: var(--green); }
+.method-desc { font-size: 11px; color: var(--text-sub); line-height: 1.65; }
+
+/* ===== PREP SECTION ===== */
+.prep-cards { display: flex; flex-direction: column; gap: 12px; margin: 1.5rem 0; }
+.prep-card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.prep-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 1rem 1.25rem;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--surface2);
+}
+.prep-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--bg);
+  flex-shrink: 0;
+}
+.prep-head-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.prep-head-sub { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+.prep-body { padding: 1.1rem 1.25rem; }
+.prep-body p { font-size: 13px; color: var(--text-sub); line-height: 1.8; }
+.prep-body strong { color: var(--text); font-weight: 500; }
+
+.prep-tip {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(79,195,247,0.07);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 12px;
+  color: var(--accent);
+  line-height: 1.65;
+}
+
+/* ===== ERROR COUNTER ===== */
+.error-box {
+  background: linear-gradient(135deg, #0D1220 0%, #141020 100%);
+  border: 0.5px solid rgba(179,136,255,0.2);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.error-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.error-steps { display: flex; flex-direction: column; gap: 10px; }
+.error-step {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.e-arrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--purple);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.e-text { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+.e-text strong { color: var(--text); font-weight: 500; }
+
+/* ===== TOOL CARDS ===== */
+.tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.5rem 0; }
+.tool-card {
+  background: var(--surface2);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+.tool-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.tool-card.gold::before { background: linear-gradient(90deg, var(--gold), transparent); }
+.tool-card.blue::before { background: linear-gradient(90deg, var(--accent), transparent); }
+
+.tool-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 99px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.badge-gold { background: rgba(255,209,102,0.15); color: var(--gold); }
+.badge-blue { background: rgba(79,195,247,0.15); color: var(--accent); }
+
+.tool-icon { font-size: 28px; margin-bottom: 8px; }
+.tool-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.tool-desc { font-size: 12px; color: var(--text-sub); line-height: 1.7; }
+.tool-desc strong { color: var(--text); font-weight: 500; }
+
+/* ===== PROFIT COMPARE ===== */
+.compare-wrap {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.compare-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 0.5px solid var(--border);
+}
+.ch-cell {
+  padding: 0.75rem 1rem;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  border-right: 0.5px solid var(--border);
+}
+.ch-cell:last-child { border-right: none; }
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 0.5px solid var(--border);
+}
+.compare-row:last-child { border-bottom: none; }
+
+.cr-cell {
+  padding: 0.9rem 1rem;
+  font-size: 12.5px;
+  color: var(--text-sub);
+  border-right: 0.5px solid var(--border);
+  line-height: 1.5;
+}
+.cr-cell:first-child { font-weight: 600; color: var(--text); font-size: 12px; }
+.cr-cell:last-child { border-right: none; }
+.cr-cell.bad { color: var(--red); }
+.cr-cell.good { color: var(--green); font-weight: 600; }
+
+/* ===== TRANSITION SECTION ===== */
+.transition-box {
+  background: linear-gradient(135deg, #0A1A0D 0%, #0D150A 100%);
+  border: 0.5px solid rgba(6,214,160,0.2);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+}
+.transition-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+.transition-body {
+  font-size: 13.5px;
+  color: var(--text-sub);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+.transition-body strong { color: var(--text); font-weight: 500; }
+
+.next-grid { display: flex; flex-direction: column; gap: 10px; }
+.next-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 0.875rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  border: 0.5px solid rgba(255,255,255,0.06);
+}
+.next-icon { font-size: 18px; flex-shrink: 0; }
+.next-text { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+.next-text strong { color: var(--text); font-weight: 500; }
+
+/* ===== LINE CTA ===== */
+.cta-box {
+  background: var(--surface2);
+  border: 0.5px solid rgba(6,214,160,0.25);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--accent), var(--purple));
+}
+.cta-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.cta-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+.cta-desc {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.cta-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+.cta-feat {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+.cta-feat::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.cta-btn {
+  display: block;
+  padding: 1rem 2rem;
+  background: var(--green);
+  color: #0A1A0D;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+}
+.cta-btn:hover { opacity: 0.85; }
+
+/* ===== WARN BOX ===== */
+.warn-box {
+  background: rgba(239,71,111,0.07);
+  border: 0.5px solid rgba(239,71,111,0.2);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  font-size: 12.5px;
+  color: #F0909A;
+  line-height: 1.75;
+  margin: 1rem 0;
+}
+.warn-box strong { color: var(--red); font-weight: 600; }
+
+/* ===== DIVIDER ===== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3.5rem 0 3rem;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--border);
+}
+.divider-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ===== PHONE MOCKUP SVG ===== */
+.mockup-wrap { display: flex; justify-content: center; margin: 1.5rem 0; }
+
+@media (max-width: 520px) {
+  .method-grid { grid-template-columns: 1fr; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .compare-head, .compare-row { grid-template-columns: 80px 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <p class="hero-eyebrow">iPhone転売 完全攻略ガイド 2026年版</p>
+
+  <h1 class="hero-title">
+    PICKUP
+    <span class="line2">MASTER</span>
+    <span class="line3">GUIDE</span>
+  </h1>
+
+  <p class="hero-sub">
+    「島流し」に怯えながら転売するのはもうやめよう。<br>
+    即日現物ゲット・即日現金化できる<strong>ピックアップ</strong>の全技術を、初心者向けに完全解説。
+  </p>
+
+  <div class="hero-stats">
+    <div class="h-stat">
+      <p class="h-stat-num">0日</p>
+      <p class="h-stat-label">相場リスク期間</p>
+    </div>
+    <div class="h-stat">
+      <p class="h-stat-num">即日</p>
+      <p class="h-stat-label">現金化スピード</p>
+    </div>
+    <div class="h-stat">
+      <p class="h-stat-num">4STEP</p>
+      <p class="h-stat-label">購入の流れ</p>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <p class="scroll-hint-text">SCROLL</p>
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ===== PAIN ===== -->
+<div class="section">
+  <p class="section-label">PROBLEM</p>
+  <h2 class="section-title">多くの人がハマる<br>「島流し」という地獄</h2>
+
+  <div class="pain-box">
+    <!-- 島流しイラスト -->
+    <svg class="island-illustration" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- 空 -->
+      <rect width="600" height="200" fill="#0A0A12"/>
+      <!-- 波 -->
+      <ellipse cx="300" cy="175" rx="280" ry="30" fill="#0D1A2E"/>
+      <path d="M20 160 Q80 145 140 158 Q200 170 260 155 Q320 142 380 156 Q440 168 500 155 Q550 145 580 158" stroke="#1A3A5C" stroke-width="2" fill="none"/>
+      <path d="M0 168 Q60 155 120 165 Q180 175 240 162 Q300 150 360 163 Q420 175 480 162 Q540 150 600 162" stroke="#1E4A6E" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <!-- 島 -->
+      <ellipse cx="300" cy="165" rx="90" ry="18" fill="#2D4A1E"/>
+      <ellipse cx="300" cy="158" rx="70" ry="14" fill="#3A5C26"/>
+      <!-- ヤシの木 -->
+      <rect x="296" y="100" width="8" height="60" rx="3" fill="#5C3D1A"/>
+      <ellipse cx="300" cy="100" rx="28" ry="14" fill="#2E7D32" transform="rotate(-15 300 100)"/>
+      <ellipse cx="300" cy="100" rx="28" ry="14" fill="#388E3C" transform="rotate(15 300 100)"/>
+      <ellipse cx="300" cy="98" rx="22" ry="10" fill="#43A047"/>
+      <!-- iPhoneの箱（島に乗ってる） -->
+      <rect x="275" y="140" width="50" height="28" rx="4" fill="#1E3A5F" stroke="#2A5080" stroke-width="1"/>
+      <rect x="280" y="145" width="40" height="18" rx="2" fill="#0D2035"/>
+      <text x="300" y="157" text-anchor="middle" font-size="9" fill="#4FC3F7" font-family="monospace">iPhone</text>
+      <!-- 時計アイコン（遠くにある感じ） -->
+      <circle cx="100" cy="100" r="22" fill="none" stroke="#EF476F" stroke-width="1.5" opacity="0.7"/>
+      <line x1="100" y1="100" x2="100" y2="84" stroke="#EF476F" stroke-width="2" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="112" y2="100" stroke="#EF476F" stroke-width="2" stroke-linecap="round"/>
+      <text x="100" y="136" text-anchor="middle" font-size="9" fill="#EF476F" font-family="sans-serif">届かない…</text>
+      <!-- 矢印（遠さを表現） -->
+      <line x1="130" y1="115" x2="210" y2="140" stroke="#5A5855" stroke-width="1" stroke-dasharray="4,4" opacity="0.6"/>
+      <!-- 人物（左側） -->
+      <circle cx="80" cy="65" r="10" fill="#5A3E2B"/>
+      <rect x="72" y="75" width="16" height="22" rx="4" fill="#2A5080"/>
+      <!-- 汗マーク -->
+      <text x="96" y="60" font-size="14" fill="#4FC3F7" opacity="0.8">💦</text>
+      <!-- 吹き出し -->
+      <rect x="20" y="30" width="80" height="26" rx="6" fill="#1E1E28" stroke="#3A3A4A" stroke-width="1"/>
+      <text x="60" y="48" text-anchor="middle" font-size="9" fill="#9A9890" font-family="sans-serif">いつ届くの…</text>
+      <!-- 下がる矢印（相場） -->
+      <text x="460" y="50" font-size="11" fill="#EF476F" font-family="monospace">相場</text>
+      <polyline points="460,60 470,75 480,68 490,82 500,76 510,92" stroke="#EF476F" stroke-width="2" fill="none"/>
+      <text x="515" y="95" font-size="10" fill="#EF476F">↓</text>
+      <text x="445" y="115" font-size="9" fill="#EF476F" font-family="sans-serif" opacity="0.8">届いた頃には…</text>
+    </svg>
+
+    <p class="section-body">
+      注文したのに<strong>いつまでも届かない。</strong>ようやく届いた頃には<strong>相場が定価まで落ちている。</strong><br>
+      これが転売ヤーを苦しめる「島流し」という現象です。郵送（配送）注文では在庫が遠い倉庫に割り当てられ、8日以上かかることも日常茶飯事。その間、資金は拘束され、相場リスクに怯え続けます。
+    </p>
+
+    <div class="warn-box" style="margin-top:1.25rem;">
+      <strong>⚠️ 現実：</strong>新しい商材を買っても、情報商材を漁っても、「島流し」の確率を大幅に下げる方法は郵送注文である限りほぼありません。根本的に「買い方」を変えるしかない。
+    </div>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-label">SOLUTION</span></div>
+
+<!-- ===== 3つの買い方 ===== -->
+<div class="section">
+  <p class="section-label">METHOD</p>
+  <h2 class="section-title">iPhoneを買う方法は<br>3つしかない</h2>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-icon">🏪</div>
+      <p class="method-name">店舗 直接購入</p>
+      <span class="method-tag tag-warn">限定モデル</span>
+      <p class="method-desc">2026年現在はiPhone 17無印のみ対応。在庫があれば確実だが、整理券・行列が必須で体力的にもきつい。</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">📦</div>
+      <p class="method-name">郵送 注文</p>
+      <span class="method-tag tag-danger">島流しリスク大</span>
+      <p class="method-desc">最も一般的な買い方。注文から8日以上かかることが多く、その間の相場変動と島流しリスクが常につきまとう。</p>
+    </div>
+    <div class="method-card highlight">
+      <div class="method-icon">⚡</div>
+      <p class="method-name">ピックアップ</p>
+      <span class="method-tag tag-best">最強</span>
+      <p class="method-desc">ネットで購入・店舗受け取り予約→当日現物ゲット。島流しゼロ・即日現金化が可能。上級者はこれ一択。</p>
+    </div>
+  </div>
+
+  <p class="section-body" style="margin-top:0.5rem;">
+    答えはシンプル。<strong>ピックアップ一択</strong>です。郵送のリスクを丸ごと消して、当日のうちに売却まで完結できる。これが上級者の買い方。
+  </p>
+</div>
+
+<div class="divider"><span class="divider-label">HOW TO PICKUP</span></div>
+
+<!-- ===== ピックアップの流れ ===== -->
+<div class="section">
+  <p class="section-label">FLOW</p>
+  <h2 class="section-title">ピックアップ購入<br>4ステップで完結</h2>
+
+  <!-- Phoneの画面イラスト -->
+  <div class="mockup-wrap">
+    <svg viewBox="0 0 280 420" width="200" xmlns="http://www.w3.org/2000/svg">
+      <!-- 端末本体 -->
+      <rect x="20" y="10" width="240" height="400" rx="36" fill="#1A1A22" stroke="#2A2A35" stroke-width="2"/>
+      <rect x="28" y="18" width="224" height="384" rx="30" fill="#0D0D15"/>
+      <!-- ダイナミックアイランド -->
+      <rect x="105" y="26" width="70" height="18" rx="9" fill="#1A1A22"/>
+      <!-- Apple Store画面 -->
+      <rect x="28" y="50" width="224" height="352" rx="8" fill="#F5F5F7"/>
+      <!-- ヘッダー -->
+      <rect x="28" y="50" width="224" height="40" rx="0" fill="#1D1D1F"/>
+      <text x="140" y="76" text-anchor="middle" font-size="12" fill="white" font-family="sans-serif" font-weight="600">Apple Store</text>
+      <!-- 商品画像エリア -->
+      <rect x="40" y="100" width="200" height="110" rx="8" fill="#E8E8ED"/>
+      <!-- iPhone シルエット -->
+      <rect x="110" y="108" width="60" height="96" rx="10" fill="#1D1D1F"/>
+      <rect x="114" y="112" width="52" height="88" rx="8" fill="#2A2A35"/>
+      <circle cx="140" cy="198" r="4" fill="#3A3A45"/>
+      <text x="140" y="126" text-anchor="middle" font-size="8" fill="#4FC3F7" font-family="monospace">iPhone 17</text>
+      <!-- 商品名 -->
+      <text x="140" y="228" text-anchor="middle" font-size="10" fill="#1D1D1F" font-family="sans-serif" font-weight="600">iPhone 17 Pro</text>
+      <text x="140" y="244" text-anchor="middle" font-size="9" fill="#6E6E73" font-family="sans-serif">Natural Titanium 256GB</text>
+      <!-- 受け取り選択 -->
+      <rect x="40" y="256" width="200" height="36" rx="8" fill="#E8E8ED"/>
+      <text x="140" y="279" text-anchor="middle" font-size="10" fill="#1D1D1F" font-family="sans-serif">📍 店舗で受け取る</text>
+      <!-- 決済ボタン -->
+      <rect x="40" y="302" width="200" height="36" rx="18" fill="#1D1D1F"/>
+      <text x="140" y="325" text-anchor="middle" font-size="11" fill="white" font-family="sans-serif" font-weight="600"> Apple Pay で購入</text>
+      <!-- 完了マーク -->
+      <circle cx="140" cy="360" r="14" fill="#06D6A0" opacity="0.9"/>
+      <text x="140" y="365" text-anchor="middle" font-size="14" fill="white">✓</text>
+      <text x="140" y="385" text-anchor="middle" font-size="9" fill="#6E6E73" font-family="sans-serif">受け取り予約完了</text>
+    </svg>
+  </div>
+
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-content">
+        <p class="flow-title">Apple Storeアプリで商品を選ぶ</p>
+        <p class="flow-desc">欲しいiPhoneのモデル・容量・カラーを選択。この時点では購入確定ではないのでゆっくりで大丈夫。</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-content">
+        <p class="flow-title">「受け取り」を選択 → 店舗を選ぶ</p>
+        <p class="flow-desc">「配送」ではなく<strong>「受け取り」</strong>をタップ。近くのApple Store一覧が表示されるので、在庫がある店舗を選ぶ。</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-content">
+        <p class="flow-title">Apple Pay / カードで決済</p>
+        <p class="flow-desc">支払い情報を入力して注文確定。Apple Payなら指紋・顔認証で1秒完了。これが最速の決済方法。</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-content">
+        <p class="flow-title">当日 or 7日以内に店舗で受け取り</p>
+        <p class="flow-desc">購入後7日間は店舗が保管してくれる。都合の良いタイミングで受け取りに行けばOK。受け取ったらその日のうちに売却して現金化！</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-label">THE WALL</span></div>
+
+<!-- ===== 2つの難所 ===== -->
+<div class="section">
+  <p class="section-label">CHALLENGE</p>
+  <h2 class="section-title">ピックアップには<br>2つの大きな壁がある</h2>
+
+  <p class="section-body" style="margin-bottom:1.5rem;">
+    「簡単じゃん！」と思ったでしょ？でもそれだけなら誰でもできる。実際には2つの高い壁が存在します。
+  </p>
+
+  <!-- 壁①在庫 -->
+  <div class="prep-card" style="margin-bottom:12px;">
+    <div class="prep-head">
+      <div class="prep-num" style="background:var(--gold);color:#1A0A00;">壁1</div>
+      <div>
+        <p class="prep-head-title">在庫がいつ出るかわからない問題</p>
+        <p class="prep-head-sub">常時監視は現実的ではない</p>
+      </div>
+    </div>
+    <div class="prep-body">
+      <p>ピックアップ在庫は<strong>突然・一瞬だけ</strong>出現します。アプリを1日中開いて待ち続けるのは不可能。解決策は後述する「入荷通知サービス」の活用。通知が来た瞬間だけアプリを開けばいいので、張り付き不要になります。</p>
+    </div>
+  </div>
+
+  <!-- 壁②電子 -->
+  <div class="prep-card">
+    <div class="prep-head">
+      <div class="prep-num" style="background:var(--red);color:#fff;">壁2</div>
+      <div>
+        <p class="prep-head-title">「電子（謎のエラー）」問題</p>
+        <p class="prep-head-sub">カートに入るのに決済でエラーが出る現象</p>
+      </div>
+    </div>
+    <div class="prep-body">
+      <p>在庫があってカートにも入れられるのに、<strong>決済画面でエラーが出て買えない。</strong>これが転売ヤーが「電子」と呼ぶApple独自の弾き機構。完全回避の方法は存在しないが、<strong>「事前準備」と「試行回数」</strong>で突破率を大幅に上げられます。</p>
+      <!-- エラー画面イラスト -->
+      <svg viewBox="0 0 400 140" width="100%" style="margin:12px 0;border-radius:10px;" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="140" fill="#1A0A0A"/>
+        <rect x="20" y="15" width="360" height="110" rx="10" fill="#2A1010" stroke="rgba(239,71,111,0.3)" stroke-width="1"/>
+        <!-- エラーアイコン -->
+        <circle cx="60" cy="55" r="18" fill="none" stroke="#EF476F" stroke-width="2"/>
+        <text x="60" y="61" text-anchor="middle" font-size="18" fill="#EF476F">!</text>
+        <!-- テキスト -->
+        <text x="90" y="48" font-size="12" fill="#F09090" font-family="sans-serif" font-weight="600">注文を完了できませんでした</text>
+        <text x="90" y="66" font-size="10" fill="#7A4A4A" font-family="sans-serif">お支払い情報を確認してください。</text>
+        <text x="90" y="81" font-size="10" fill="#7A4A4A" font-family="sans-serif">しばらく経ってから再度お試しください。</text>
+        <!-- ボタン -->
+        <rect x="90" y="96" width="120" height="24" rx="5" fill="#3A1010" stroke="rgba(239,71,111,0.4)" stroke-width="1"/>
+        <text x="150" y="113" text-anchor="middle" font-size="10" fill="#EF476F" font-family="sans-serif">もう一度試す</text>
+        <!-- 通称ラベル -->
+        <rect x="280" y="15" width="100" height="110" rx="10" fill="#0D0D0D" opacity="0"/>
+        <text x="330" y="65" text-anchor="middle" font-size="10" fill="#5A5855" font-family="monospace">↑ これが</text>
+        <text x="330" y="82" text-anchor="middle" font-size="13" fill="#EF476F" font-family="monospace" font-weight="600">「電子」</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><span class="divider-label">PREPARATION</span></div>
+
+<!-- ===== 準備4ステップ ===== -->
+<div class="section">
+  <p class="section-label">PREPARATION</p>
+  <h2 class="section-title">電子を突破する<br>事前準備4つ</h2>
+
+  <div class="prep-cards">
+
+    <!-- 準備1 -->
+    <div class="prep-card">
+      <div class="prep-head">
+        <div class="prep-num">1</div>
+        <div>
+          <p class="prep-head-title">入荷通知サービスに登録する</p>
+          <p class="prep-head-sub">在庫が出た瞬間に通知を受け取る</p>
+        </div>
+      </div>
+      <div class="prep-body">
+        <p>LINEオープンチャットやDiscord（Versusなど）には、<strong>Apple Storeの店舗別在庫をリアルタイムで監視</strong>して通知してくれるサービスがあります。これに参加しておくと、在庫が出た瞬間スマホに通知が届く。アプリに張り付く必要がなくなります。</p>
+        <div class="prep-tip">📲 通知は必ず「オン」にしておくこと。通知を見逃すだけで勝負が終わります。</div>
+      </div>
+    </div>
+
+    <!-- 準備2 -->
+    <div class="prep-card">
+      <div class="prep-head">
+        <div class="prep-num">2</div>
+        <div>
+          <p class="prep-head-title">カートと支払い情報を事前準備する</p>
+          <p class="prep-head-sub">通知が来てからでは遅い</p>
+        </div>
+      </div>
+      <div class="prep-body">
+        <p>ピックアップは早押しバトル。通知が来てから操作していたら他の人に取られます。<strong>待機中に以下を済ませておく：</strong></p>
+        <ul style="margin:10px 0 0 16px;font-size:13px;color:var(--text-sub);line-height:2;">
+          <li>狙っている商品をカートに入れた状態にしておく</li>
+          <li>「店舗受け取り」を選択した状態にしておく</li>
+          <li>「ご注文手続き」画面で支払い情報を入力 → <strong>「保存」ボタンを押す</strong></li>
+        </ul>
+        <div class="prep-tip">💡 これで通知が来たら「注文確定」ボタンを押すだけの状態になる。最短1〜2秒で完了できる。</div>
+      </div>
+    </div>
+
+    <!-- 準備3 -->
+    <div class="prep-card">
+      <div class="prep-head">
+        <div class="prep-num">3</div>
+        <div>
+          <p class="prep-head-title">「電子」が出た時のカウンター対策</p>
+          <p class="prep-head-sub">エラーが出ても即座に環境を変えて再トライ</p>
+        </div>
+      </div>
+      <div class="prep-body">
+        <p>エラーが出ても諦めない。<strong>同じ環境で何度やっても弾かれ続けます。</strong>即座に以下を試してください：</p>
+        <div class="error-box" style="margin-top:12px;">
+          <p class="error-title">⚡ 電子カウンター手順</p>
+          <div class="error-steps">
+            <div class="error-step">
+              <span class="e-arrow">→ 1</span>
+              <p class="e-text"><strong>カード番号を変える：</strong>同じカードを使い続けると弾かれやすい。即座に別のカード番号に切り替える。</p>
+            </div>
+            <div class="error-step">
+              <span class="e-arrow">→ 2</span>
+              <p class="e-text"><strong>住所（アドレス）を変える：</strong>登録住所を別の形式に変更する。これだけで通ることが多い。</p>
+            </div>
+            <div class="error-step">
+              <span class="e-arrow">→ 3</span>
+              <p class="e-text"><strong>デバイス環境を変える：</strong>アプリでダメならブラウザのプライベートモード、または機内モードON/OFFを試す。</p>
+            </div>
+            <div class="error-step">
+              <span class="e-arrow">→ 4</span>
+              <p class="e-text"><strong>「はい次！」の精神：</strong>1日に何度もチャンスは来る。エラーが出たら切り替えて次を待つ。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 準備4 -->
+    <div class="prep-card">
+      <div class="prep-head">
+        <div class="prep-num">4</div>
+        <div>
+          <p class="prep-head-title">「弾」を無限に用意する神ツール2つ</p>
+          <p class="prep-head-sub">カード番号・アドレスを枯渇させない</p>
+        </div>
+      </div>
+      <div class="prep-body">
+        <p>カードもアドレスも無限には持てない——という問題を解決する2つのツールを紹介します。</p>
+        <div class="tool-grid" style="margin-top:12px;">
+          <div class="tool-card gold">
+            <span class="tool-badge badge-gold">神ツール ①</span>
+            <div class="tool-icon">💳</div>
+            <p class="tool-name">PayPay銀行<br>バーチャルデビット</p>
+            <p class="tool-desc"><strong>バーチャルカードを5枚同時に作れる。</strong>しかもカード番号をいつでも変更可能。エラーが出た瞬間に番号を変えれば、システム上は「新しいカード」として認識される。</p>
+          </div>
+          <div class="tool-card blue">
+            <span class="tool-badge badge-blue">神ツール ②</span>
+            <div class="tool-icon">✉️</div>
+            <p class="tool-name">Gmail<br>エイリアス機能</p>
+            <p class="tool-desc"><strong>メールアドレスを無限に作れる。</strong>自分のアドレス「xxxx@gmail.com」に「+01」「+02」を足すだけで別アドレス扱いに。メールは全て元のアドレスに届く。</p>
+          </div>
+        </div>
+        <!-- エイリアス図解 -->
+        <svg viewBox="0 0 400 80" width="100%" style="margin-top:12px;border-radius:10px;" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="80" fill="#0D1520" rx="10"/>
+          <rect x="15" y="15" width="150" height="50" rx="8" fill="#1A2535" stroke="rgba(79,195,247,0.2)" stroke-width="1"/>
+          <text x="90" y="36" text-anchor="middle" font-size="9" fill="#4FC3F7" font-family="monospace">you@gmail.com</text>
+          <text x="90" y="52" text-anchor="middle" font-size="9" fill="#5A5855" font-family="sans-serif">元のアドレス</text>
+
+          <text x="200" y="44" text-anchor="middle" font-size="18" fill="#5A5855">→</text>
+
+          <rect x="225" y="10" width="160" height="28" rx="6" fill="#1A2535" stroke="rgba(79,195,247,0.2)" stroke-width="0.5"/>
+          <text x="305" y="28" text-anchor="middle" font-size="8.5" fill="#9AE0F7" font-family="monospace">you<tspan fill="#FFD166">+01</tspan>@gmail.com</text>
+          <rect x="225" y="42" width="160" height="28" rx="6" fill="#1A2535" stroke="rgba(79,195,247,0.2)" stroke-width="0.5"/>
+          <text x="305" y="60" text-anchor="middle" font-size="8.5" fill="#9AE0F7" font-family="monospace">you<tspan fill="#FFD166">+02</tspan>@gmail.com</text>
+        </svg>
+        <div class="prep-tip">📌 どちらも無料で使えて、準備に5分もかからない。今すぐ設定しておくこと。</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"><span class="divider-label">PROFIT COMPARISON</span></div>
+
+<!-- ===== 郵送 vs ピックアップ ===== -->
+<div class="section">
+  <p class="section-label">COMPARE</p>
+  <h2 class="section-title">郵送 vs ピックアップ<br>どちらが本当に儲かるか</h2>
+
+  <div class="compare-wrap">
+    <div class="compare-head">
+      <div class="ch-cell">比較軸</div>
+      <div class="ch-cell">📦 郵送</div>
+      <div class="ch-cell">⚡ ピックアップ</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell">現金化まで</div>
+      <div class="cr-cell bad">最短8日以上</div>
+      <div class="cr-cell good">当日</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell">相場リスク</div>
+      <div class="cr-cell bad">8日分まるごと</div>
+      <div class="cr-cell good">ほぼゼロ</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell">島流しリスク</div>
+      <div class="cr-cell bad">常に存在</div>
+      <div class="cr-cell good">ゼロ</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell">資金拘束期間</div>
+      <div class="cr-cell bad">8日〜2週間</div>
+      <div class="cr-cell good">当日返ってくる</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell">月の回転数</div>
+      <div class="cr-cell">約2〜4回</div>
+      <div class="cr-cell good">毎日チャンスあり</div>
+    </div>
+    <div class="compare-row">
+      <div class="cr-cell">精神負荷</div>
+      <div class="cr-cell bad">常に不安</div>
+      <div class="cr-cell good">当日完結で爽快</div>
+    </div>
+  </div>
+
+  <div style="background:rgba(6,214,160,0.07);border:0.5px solid rgba(6,214,160,0.2);border-radius:14px;padding:1rem 1.25rem;margin-top:1rem;font-size:13px;color:var(--text-sub);line-height:1.8;">
+    <strong style="color:var(--green);">💡 計算式：</strong><br>
+    郵送1台で得られる利益と同じ額を、ピックアップなら<strong>「8日に1回」の成功</strong>で再現できる。1日1台を目指してトライし続ければ、数千円〜数万円の副収入レベルを超えていくのは難しくない。
+  </div>
+</div>
+
+<div class="divider"><span class="divider-label">NEXT LEVEL</span></div>
+
+<!-- ===== 転売の先へ ===== -->
+<div class="section">
+  <p class="section-label">HONEST TALK</p>
+  <h2 class="section-title">転売の先に何があるか、<br>正直に話す。</h2>
+
+  <p class="section-body" style="margin-bottom:1.5rem;">
+    iPhone転売の島流し対策・電子突破は<strong>Appleとのいたちごっこ</strong>。対策が出ては塞がれ、また対策を練る——の繰り返しです。月利50万・100万を個人の片手間で継続するのは、現実的に難しい。
+  </p>
+
+  <div class="transition-box">
+    <p class="transition-title">📱 iPhone転売の知識が、MNPで直結する</p>
+    <p class="transition-body">
+      スマホに詳しくなった・キャリアの仕組みがわかった・ネットで素早く行動できる——これらはそのまま<strong>MNP（携帯乗り換え）</strong>で大きな利益に直結するスキルです。<br><br>
+      MNPは<strong>再現性100%</strong>。Apple側のルール変更に左右されず、正しい手順を守れば誰でも同じ結果が出る。転売で培ったスマホ知識がそのまま武器になります。
+    </p>
+    <div class="next-grid">
+      <div class="next-item">
+        <span class="next-icon">💰</span>
+        <p class="next-text"><strong>MNPの極意：</strong>iPhone転売の知識を活かして、乗り換えキャッシュバックで月10万円以上を安定して稼ぐ仕組みを作る。</p>
+      </div>
+      <div class="next-item">
+        <span class="next-icon">📢</span>
+        <p class="next-text"><strong>X（旧Twitter）運用：</strong>ノウハウ・裏技を発信するだけで、収益化を突破する方法。発信が新たな収入源になる。</p>
+      </div>
+      <div class="next-item">
+        <span class="next-icon">🎯</span>
+        <p class="next-text"><strong>アフィリエイト戦略：</strong>高単価案件を確実に成約させる仕組み。一度作れば寝ていても収入が入る「積み上げ型」の収益柱。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LINE CTA ===== -->
+<div class="cta-box">
+  <p class="cta-eyebrow">OFFICIAL LINE</p>
+  <p class="cta-title">「稼ぐ力」を一時的なものにせず、<br>一生モノのスキルに変える</p>
+  <p class="cta-desc">
+    iPhone転売で動けるようになったあなたへ。次のステージへ進む準備ができているなら、公式LINEから個別にご連絡ください。
+  </p>
+  <div class="cta-features">
+    <div class="cta-feat">iPhone転売知識を活かした「MNP」の極意</div>
+    <div class="cta-feat">収益化する「X運用術」</div>
+    <div class="cta-feat">高単価案件を成約させる「アフィリエイト」戦略</div>
+    <div class="cta-feat">公式LINEのみで発信する限定コンテンツ</div>
+  </div>
+  <a href="https://lin.ee/AsTWK4D" class="cta-btn">🦉 公式LINEに登録して次のステージへ →</a>
+</div>
+
+</div><!-- /page -->
+</body>
+</html>
